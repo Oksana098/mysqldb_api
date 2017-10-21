@@ -11,10 +11,19 @@ class MysqlDBApi(object):
         self.port = port
 
     def db_conector(self):
-        return _mysql.connect(host=self.host, )
+        return _mysql.connect()
+
+    def insert(self):
+        pass
+
+    def select(self):
+        pass
+
+    def update(self):
+        pass
+
+    def delete(self):
+        pass
 
 
 m = MysqlDBApi(host='127.0.0.1', user='root', passwd='', database='sf_tes', port='3306')
-
-print
-
