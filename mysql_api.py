@@ -84,13 +84,13 @@ class MysqlDBApi(object):
         else:
             return result.fetch_row()
 
-    def update(self, table, set, where):
+    def update(self, table, set_update, where):
         """
         :param table: table in db
         :param set: element which update
         :param where: condition
         """
-        set_new = self.create_insert_query(**set)
+        set_new = self.create_insert_query(**set_update)
         where_new = self.create_insert_query(**where)
         return self.con.query("""UPDATE {}  SET {} WHERE {}""".format(table, set_new, where_new))
 
@@ -114,7 +114,7 @@ db.insert('users', **data)
 db.select('select * from users', use_result=True, fetch_row=True, maxrows=0)
 
 # 3. Update
-db.update(table='users', set={'firstname': "oleg"}, where={'firstname': "oleh2"})
+db.update(table='users', set_update={'firstname': "oleg"}, where={'firstname': "oleh2"})
 
 # 4. Delete
 db.delete(table='users', where={'firstname': "oksana"})
